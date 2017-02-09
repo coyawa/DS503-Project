@@ -1,10 +1,10 @@
+// package ds503.project1;
+
 import java.io.FileWriter;
 import java.util.Random;
 
-
-
-public class CreateCustomers {
-	private static void CreateDataSet() {
+public class createDBcustomers {
+    private static void CreateDataSet() {
 		int ID=0;
 		String name=null;
 		int age=0;
@@ -13,7 +13,7 @@ public class CreateCustomers {
 		int nameLength=10;
 		String lineRecordString;
 		 try { 
-			 FileWriter fw = new FileWriter("customers.txt"); 
+			 FileWriter fw = new FileWriter("customers.csv"); 
 			 while(ID<50000){
 				 ID++;
 				 nameLength=new Random().nextInt(10)+10;
@@ -41,14 +41,8 @@ public class CreateCustomers {
 	    }   
 	    return sb.toString();   
 	 }  
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		CreateDataSet();
-	}
-
+public static void main(String[] args) {
+	CreateDataSet();
+}
 
 }
