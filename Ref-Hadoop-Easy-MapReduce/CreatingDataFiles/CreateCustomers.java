@@ -42,13 +42,13 @@ public class CreateCustomers {
 	    return sb.toString();   
 	 }  
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		CreateDataSet();
-	}
+	// /**
+	//  * @param args
+	//  */
+	// public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	// 	CreateDataSet();
+	// }
 
 
 }
