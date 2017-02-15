@@ -1,14 +1,13 @@
 import java.io.IOException;
 import java.util.*;
-
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.conf.*;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.util.*;
 	
-public class query1 {
-	 public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, IntWritable, Text> {
+public class Query1 {
+	 public static class map extends MapReduceBase implements Mapper<LongWritable, Text, IntWritable, Text> {
 	      private final static IntWritable one = new IntWritable(1);
 	      private Text word = new Text();
 	      
@@ -23,26 +22,17 @@ public class query1 {
 	        	}	        			        
 	      }
 	   }
-	
-		
 	    public static void main(String[] args) throws Exception {
-	      JobConf conf = new JobConf(query1.class);
-	      conf.setJobName("query1");
-	
+	      JobConf conf = new JobConf(Query1.class);
+	      conf.setJobName("Query1");
 	      conf.setOutputKeyClass(IntWritable.class);
 	      conf.setOutputValueClass(Text.class);
-	
-	      conf.setMapperClass(Map.class);
-	
+	      conf.setMapperClass(map.class);
 	      conf.setInputFormat(TextInputFormat.class);
 	      conf.setOutputFormat(TextOutputFormat.class);
-	
 	      FileInputFormat.setInputPaths(conf, new Path(args[0]));
 	      FileOutputFormat.setOutputPath(conf, new Path(args[1]));
-	
 	      JobClient.runJob(conf);
 	    }
 	}
-		   
-
-
+	

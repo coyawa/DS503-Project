@@ -7,7 +7,7 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.util.*;
 	
-public class transforCust{
+public class Query2{
 public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, IntWritable, FloatWritable> {
       private IntWritable custID=new IntWritable(0);
       //private Text stringStoreTwoInts = new Text();
@@ -31,13 +31,13 @@ public static class Map extends MapReduceBase implements Mapper<LongWritable, Te
           totalSum += Float.parseFloat(values.next().toString());
 	  numTrans++;
         }
-	String stringStoreTwoInts=Long.toString(numTrans)+Double.toString(totalSum);
+	String stringStoreTwoInts=Long.toString(numTrans)+","+Double.toString(totalSum);
         output.collect(key, new Text(stringStoreTwoInts));
       }
     }
     public static void main(String[] args) throws Exception {
-      JobConf conf = new JobConf(transforCust.class);
-      conf.setJobName("transforcust");
+      JobConf conf = new JobConf(Query2.class);
+      conf.setJobName("Query2");
 
       conf.setOutputKeyClass(IntWritable.class);
       conf.setOutputValueClass(FloatWritable.class);

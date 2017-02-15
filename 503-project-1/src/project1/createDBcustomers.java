@@ -1,10 +1,21 @@
-// package ds503.project1;
+// package project1;
 
 import java.io.FileWriter;
 import java.util.Random;
 
 public class createDBcustomers {
-    private static void CreateDataSet() {
+
+	public static String getRandomString(int length) { 
+    String base = "abcdefghijklmnopqrstuvwxyz";   
+    Random random = new Random();   
+    StringBuffer sb = new StringBuffer();   
+    for (int i = 0; i < length; i++) {   
+        int number = random.nextInt(base.length());   
+        sb.append(base.charAt(number));   
+    }   
+    return sb.toString();   
+ } 
+    private static void createDataset() {
 		int ID=0;
 		String name=null;
 		int age=0;
@@ -13,7 +24,7 @@ public class createDBcustomers {
 		int nameLength=10;
 		String lineRecordString;
 		 try { 
-			 FileWriter fw = new FileWriter("customers.csv"); 
+			 FileWriter fw = new FileWriter("Customers.csv"); 
 			 while(ID<50000){
 				 ID++;
 				 nameLength=new Random().nextInt(10)+10;
@@ -29,20 +40,9 @@ public class createDBcustomers {
 			 } 
 		 catch (Exception e) { 
 			 } 
-		 }
-		
-	public static String getRandomString(int length) { 
-	    String base = "abcdefghijklmnopqrstuvwxyz";   
-	    Random random = new Random();   
-	    StringBuffer sb = new StringBuffer();   
-	    for (int i = 0; i < length; i++) {   
-	        int number = random.nextInt(base.length());   
-	        sb.append(base.charAt(number));   
-	    }   
-	    return sb.toString();   
-	 }  
+		 } 
 public static void main(String[] args) {
-	CreateDataSet();
-}
+	createDataset();
+	}
 
 }

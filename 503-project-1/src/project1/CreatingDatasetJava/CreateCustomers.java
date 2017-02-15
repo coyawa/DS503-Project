@@ -1,8 +1,6 @@
 import java.io.FileWriter;
 import java.util.Random;
 
-
-
 public class CreateCustomers {
 	private static void CreateDataSet() {
 		int ID=0;
@@ -42,13 +40,11 @@ public class CreateCustomers {
 	    return sb.toString();   
 	 }  
 
-	// /**
-	//  * @param args
-	//  */
-	// public static void main(String[] args) {
-	// TODO Auto-generated method stub
-	// 	CreateDataSet();
-	// }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CreateDataSet();
+	}
 
 
 }
